@@ -16,5 +16,14 @@ jobs:
     steps:
       - name: mostrar texto
         run: echo "Construir"
+        
+  deploy:
+    runs-on: windows-latest
+    needs: [build]
+    steps:
+      - name: Configurar entorno de despliegue
+        run: echo "Preparando entorno de despliegue"
 
+      - name: Simular despliegue
+        run: echo "Aplicación desplegada correctamente"
                 
