@@ -1,0 +1,15 @@
+{
+    "name": "felipe/ejemplo-git-hub-actions",
+    "autoload": {
+        "psr-4": {
+            "Felipe\\EjemploGitHubActions\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "fsjimenez",
+            "email": "fsjimenez1@utpl.edu.ec"
+        }
+    ],
+    "require": {}
+}

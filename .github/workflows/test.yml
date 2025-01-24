@@ -37,6 +37,28 @@ jobs:
       - name: Verificar configuración
         run: |
           mysql -u root -proot -e "SHOW DATABASES;"
+      
+          - name: 📦 Instalar dependencias de Laravel Lumen
+          run: |
+            composer install --no-interaction --prefer-dist --no-scripts --no-progress
+            if (Test-Path .env.example) { Copy-Item .env.example .env } else { New-Item .env -ItemType File }
+            echo "APP_KEY=base64:0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" | Out-File -Append .env
+  
+      - name: ⚡ Ejecutar migraciones y seeders
+        env:
+            DB_CONNECTION: mysql
+            DB_HOST: 127.0.0.1
+            DB_PORT: 3306
+            DB_DATABASE: lumen_db
+            DB_USERNAME: root
+            DB_PASSWORD: root
+        run: |
+            if (Test-Path artisan) {
+              php artisan migrate --force
+              php artisan db:seed --force
+            } else {
+              echo "⚠ Archivo artisan no encontrado"
+              exit 1}
 
 
   test:
