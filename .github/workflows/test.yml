@@ -38,8 +38,8 @@ jobs:
         run: |
           mysql -u root -proot -e "SHOW DATABASES;"
       
-          - name: 📦 Instalar dependencias de Laravel Lumen
-          run: |
+      - name: 📦 Instalar dependencias de Laravel Lumen
+        run: |
             composer install --no-interaction --prefer-dist --no-scripts --no-progress
             if (Test-Path .env.example) { Copy-Item .env.example .env } else { New-Item .env -ItemType File }
             echo "APP_KEY=base64:0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" | Out-File -Append .env
