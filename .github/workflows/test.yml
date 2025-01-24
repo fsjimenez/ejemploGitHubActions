@@ -18,6 +18,12 @@ jobs:
         run: echo "Clonar repositorio a guthub actions"
       - name: Clonar Repositorio
         uses: actions/checkout@v4.2.2
+      - name: php
+        run: |
+          choco install php --version=8.1
+          choco install composer
+          php -v
+          composer --version
 
   test:
     runs-on: windows-latest
