@@ -15,7 +15,9 @@ jobs:
     needs: [inicio]
     steps:
       - name: mostrar texto
-        run: echo "Construir"
+        run: echo "Clonar repositorio a guthub actions"
+      - name: Clonar Repositorio
+        uses: actions/checkout@v4.2.2
 
   test:
     runs-on: windows-latest
