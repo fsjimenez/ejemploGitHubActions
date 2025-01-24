@@ -27,6 +27,7 @@ jobs:
       - name: Instalar MySql
         run: |
           choco install mysql --version=8.0
+          Start-
 
   test:
     runs-on: windows-latest
